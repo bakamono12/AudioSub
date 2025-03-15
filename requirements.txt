@@ -1,0 +1,20 @@
+# Web Framework
+flask==2.3.3
+werkzeug==2.3.7
+
+# Audio/Video Processing
+ffmpeg-python==0.2.0
+
+# Transcription
+openai-whisper==20240930
+torch==2.1.0 
+
+# Translation
+googletrans==4.0.0-rc1
+
+# For file handling and processing
+uuid==1.30
+python-dotenv==1.0.0
+
+# Production Server
+gunicorn==21.2.0
