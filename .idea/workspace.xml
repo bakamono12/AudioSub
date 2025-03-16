@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9fa4c93e-9fe7-4999-9b29-84ed94c9a073" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/railway.json" beforeDir="false" afterPath="$PROJECT_DIR$/railway.json" afterDir="false" />
-    </list>
+    <list default="true" id="9fa4c93e-9fe7-4999-9b29-84ed94c9a073" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -160,7 +157,7 @@
       <workItem from="1741292238629" duration="10390000" />
       <workItem from="1742054599737" duration="1489000" />
       <workItem from="1742059252134" duration="1446000" />
-      <workItem from="1742060740759" duration="25013000" />
+      <workItem from="1742060740759" duration="25839000" />
     </task>
     <servers />
   </component>
@@ -177,12 +174,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/celery_worker.py</url>
-          <line>49</line>
+          <line>45</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/celery_worker.py</url>
-          <line>72</line>
+          <line>89</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
