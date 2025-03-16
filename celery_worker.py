@@ -42,18 +42,35 @@ def process_media(filepath, file_id, language=''):
         if filepath.endswith(('.mp4', '.avi', '.mov')):
             _logger.info(f"Extracting audio from video file: {filepath}")
             audio_path = os.path.join(UPLOAD_FOLDER, f"{file_id}.wav")
-            process = subprocess.run([
-                'ffmpeg', '-i', filepath, '-vn', '-acodec', 'pcm_s16le',
-                '-ar', '16000', '-ac', '1', audio_path
-            ], check=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-            if process.returncode != 0:
-                _logger.error(f"FFmpeg error: {process.stderr.decode('utf-8', errors='replace')}")
-                raise Exception(f"FFmpeg failed with error: {process.stderr.decode('utf-8', errors='replace')}")
-
-            if not os.path.exists(audio_path) or os.path.getsize(audio_path) == 0:
-                _logger.error(f"Audio extraction failed: {audio_path} not found or empty")
-                raise Exception("Audio extraction failed: output file not found or empty")
+            
+            # Try multiple possible paths for ffmpeg
+            ffmpeg_paths = [
+                os.path.join('/tmp/bin', 'ffmpeg'),
+                os.path.join('/usr/local/bin', 'ffmpeg'),
+                os.path.join('/usr/bin', 'ffmpeg'),
+                'ffmpeg'  # Try PATH as last resort
+            ]
+            
+            success = False
+            for ffmpeg_cmd in ffmpeg_paths:
+                try:
+                    _logger.info(f"Trying FFmpeg at: {ffmpeg_cmd}")
+                    process = subprocess.run([
+                        ffmpeg_cmd, '-i', filepath, '-vn', '-acodec', 'pcm_s16le',
+                        '-ar', '16000', '-ac', '1', audio_path
+                    ], check=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                    
+                    if process.returncode == 0:
+                        _logger.info(f"FFmpeg command successful using {ffmpeg_cmd}")
+                        success = True
+                        break
+                    else:
+                        _logger.warning(f"FFmpeg at {ffmpeg_cmd} failed with: {process.stderr.decode('utf-8', errors='replace')}")
+                except Exception as e:
+                    _logger.warning(f"Error running {ffmpeg_cmd}: {str(e)}")
+                    
+            if not success:
+                raise Exception("All FFmpeg paths failed. Cannot process video.")
         else:
             audio_path = filepath
             if not os.path.exists(audio_path):
