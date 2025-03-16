@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9fa4c93e-9fe7-4999-9b29-84ed94c9a073" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nixpacks.toml" beforeDir="false" afterPath="$PROJECT_DIR$/nixpacks.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/railway.json" beforeDir="false" afterPath="$PROJECT_DIR$/railway.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,12 +45,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="staging" />
-                    <option name="lastUsedInstant" value="1742111054" />
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1742113541" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1742111053" />
+                    <option name="branchName" value="staging" />
+                    <option name="lastUsedInstant" value="1742111054" />
                   </RecentBranch>
                 </list>
               </option>
@@ -107,7 +103,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "staging",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/abhis/PycharmProjects/VideoAudioSub",
     "list.type.of.created.stylesheet": "CSS",
@@ -164,7 +160,7 @@
       <workItem from="1741292238629" duration="10390000" />
       <workItem from="1742054599737" duration="1489000" />
       <workItem from="1742059252134" duration="1446000" />
-      <workItem from="1742060740759" duration="23916000" />
+      <workItem from="1742060740759" duration="25013000" />
     </task>
     <servers />
   </component>
