@@ -138,52 +138,52 @@ def download_subtitle(file_id):
         return jsonify({'error': 'Subtitle file not found'}), 404
 
 
-@app.route('/translate', methods=['POST'])
-def translate():
-    """Translate subtitles to a target language"""
-    data = request.json
-    file_id = data.get('file_id')
-    target_language = data.get('target_language')
-    
-    if not file_id or not target_language:
-        return jsonify({'error': 'Missing parameters'}), 400
-        
-    translation_id = f"{file_id}_{target_language}"
-    processing_status[translation_id] = {
-        'status': 'Starting translation',
-        'progress': 10,
-        'state': 'PROCESSING'
-    }
-    
-    # Start translation in background thread
-    def do_translation():
-        try:
-            processing_status[translation_id]['status'] = 'Translating subtitles'
-            processing_status[translation_id]['progress'] = 50
-            result = translate_subtitles(file_id, target_language)
-            processing_status[translation_id] = {
-                'status': 'Translation complete',
-                'progress': 100,
-                'state': 'SUCCESS',
-                'result': result
-            }
-        except Exception as e:
-            _logger.error(f"Error translating subtitles: {str(e)}")
-            processing_status[translation_id] = {
-                'status': f'Error: {str(e)}',
-                'progress': 0,
-                'state': 'FAILURE'
-            }
-    
-    thread = threading.Thread(target=do_translation)
-    thread.daemon = True
-    thread.start()
-    
-    return jsonify({
-        'message': 'Translation started',
-        'translation_id': translation_id,
-        'state': 'PROCESSING'
-    })
+# @app.route('/translate', methods=['POST'])
+# def translate():
+#     """Translate subtitles to a target language"""
+#     data = request.json
+#     file_id = data.get('file_id')
+#     target_language = data.get('target_language')
+#
+#     if not file_id or not target_language:
+#         return jsonify({'error': 'Missing parameters'}), 400
+#
+#     translation_id = f"{file_id}_{target_language}"
+#     processing_status[translation_id] = {
+#         'status': 'Starting translation',
+#         'progress': 10,
+#         'state': 'PROCESSING'
+#     }
+#
+#     # Start translation in background thread
+#     def do_translation():
+#         try:
+#             processing_status[translation_id]['status'] = 'Translating subtitles'
+#             processing_status[translation_id]['progress'] = 50
+#             result = translate_subtitles(file_id, target_language)
+#             processing_status[translation_id] = {
+#                 'status': 'Translation complete',
+#                 'progress': 100,
+#                 'state': 'SUCCESS',
+#                 'result': result
+#             }
+#         except Exception as e:
+#             _logger.error(f"Error translating subtitles: {str(e)}")
+#             processing_status[translation_id] = {
+#                 'status': f'Error: {str(e)}',
+#                 'progress': 0,
+#                 'state': 'FAILURE'
+#             }
+#
+#     thread = threading.Thread(target=do_translation)
+#     thread.daemon = True
+#     thread.start()
+#
+#     return jsonify({
+#         'message': 'Translation started',
+#         'translation_id': translation_id,
+#         'state': 'PROCESSING'
+#     })
 
 
 if __name__ == '__main__':

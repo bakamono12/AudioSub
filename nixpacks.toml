@@ -1,2 +1,9 @@
 [phases.setup]
-aptPkgs = ["ffmpeg", "python3-dev", "build-essential"]
+aptPkgs = ["python3-dev", "build-essential"]
+
+[build]
+builder = "nixpacks"
+buildCommand = "pip install --upgrade pip && pip install -r requirements.txt && chmod +x start.sh"
+
+[deploy]
+startCommand = "./start.sh"
